@@ -1,5 +1,4 @@
-
-vy
+#!groovy
 // Runs build and deploy to develop on push
 properties([disableConcurrentBuilds()])
 

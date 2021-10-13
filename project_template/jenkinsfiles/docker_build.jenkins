@@ -1,5 +1,4 @@
-
-vy
+#!groovy
 // Run docker build
 properties([disableConcurrentBuilds()])
 

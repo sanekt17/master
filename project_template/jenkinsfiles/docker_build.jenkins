@@ -26,11 +26,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 dir ('docker/toolbox') {
-<<<<<<< HEAD
-                	sh 'docker build -t sanek17/toolbox:latest . '
-=======
                 	sh 'docker build -t sanekt17/toolbox:latest . '
->>>>>>> 8c84c9c301de31566f568b106124d61fa3f679d4
                 }
             }
         }

@@ -4,7 +4,7 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent { 
-        label 'master'
+        label 'main'
         }
     triggers { pollSCM('* * * * *') }
     options {
@@ -25,7 +25,7 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
-                dir ('docker/toolbox') {
+                dir ('master/project_template/docker/toolbox') {
                 	sh 'docker build -t sanekt17/toolbox:latest . '
                 }
             }

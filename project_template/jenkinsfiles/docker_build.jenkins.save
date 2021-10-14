@@ -1,5 +1,4 @@
-#!groovy
-// Run docker build
+/ Run docker build
 properties([disableConcurrentBuilds()])
 
 pipeline {
@@ -12,11 +11,29 @@ pipeline {
         timestamps()
     }
     stages {
+        stage("docker login"
+
+
+
+
+          steps {
+                echo " ============== docker login =================="
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_sanekt17', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh """
+                    docker login -u $USERNAME -p $PASSWORD
+                    """
+                }
+            }
+        }
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
-                dir ('master/project_template/docker/toolbox') {
+                dir ('docker/toolbox') {
+<<<<<<< HEAD
+                	sh 'docker build -t sanek17/toolbox:latest . '
+=======
                 	sh 'docker build -t sanekt17/toolbox:latest . '
+>>>>>>> 8c84c9c301de31566f568b106124d61fa3f679d4
                 }
             }
         }

@@ -2,11 +2,14 @@
 // Run docker build
 properties([disableConcurrentBuilds()])
 pipeline {
-  environment {
-    registry = "sanekt17/main"
-    registryCredential = ‘dockerhub’
-  }
-  agent any
+    agent { 
+        label 'master'
+        }
+    triggers { pollSCM('* * * * *') }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
     stages {
         stage("create docker image") {
             steps {
@@ -16,13 +19,6 @@ pipeline {
                 }
             }
         }
-        stage("docker push") {
-            steps {
-                echo " ============== start pushing image =================="
-                sh '''
-                docker push sanekt17/toolbox:latest
-                '''
-            }
-        }
+        
     }
 }

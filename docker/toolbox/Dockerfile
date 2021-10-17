@@ -1,4 +1,4 @@
 FROM alpine
 RUN apk add --no-cache curl wget busybox-extras netcat-openbsd 
-CMD /bin/bash
+CMD CMD tail -f /dev/null
 

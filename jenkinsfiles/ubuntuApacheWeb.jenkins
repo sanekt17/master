@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 dir ('docker/ubuntuApacheWeb') {
-                        sh 'docker build -t sanekt17/ubuntuApacheWeb/ubuntuApacheWeb:latest . '
+                        sh 'docker build -t sanekt17/ubuntuApacheWeb:latest . '
                 }
             }
         }
